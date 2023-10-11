@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\Users\\smsmm\\.jdks\\openjdk-19.0.2\\daemon\\8.0\\com.example.bot2.app-mergeDebugResources-30:\\layout\\drawer_back_layout.xml",
+        "source": "C:\\Users\\smsmm\\.jdks\\openjdk-19.0.2\\daemon\\8.0\\com.example.bot2.app-main-33:\\layout\\drawer_back_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\smsmm\\.jdks\\openjdk-19.0.2\\daemon\\8.0\\com.example.bot2.app-mergeDebugResources-30:\\layout\\drawer_item.xml",
+        "source": "C:\\Users\\smsmm\\.jdks\\openjdk-19.0.2\\daemon\\8.0\\com.example.bot2.app-main-33:\\layout\\drawer_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\smsmm\\.jdks\\openjdk-19.0.2\\daemon\\8.0\\com.example.bot2.app-mergeDebugResources-30:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\smsmm\\.jdks\\openjdk-19.0.2\\daemon\\8.0\\com.example.bot2.app-main-33:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\smsmm\\.jdks\\openjdk-19.0.2\\daemon\\8.0\\com.example.bot2.app-mergeDebugResources-30:\\layout\\drawer_header.xml",
+        "source": "C:\\Users\\smsmm\\.jdks\\openjdk-19.0.2\\daemon\\8.0\\com.example.bot2.app-main-33:\\layout\\drawer_header.xml"
+    },
+    {
+        "merged": "com.example.bot2.app-mergeDebugResources-30:/layout/activity_main.xml",
+        "source": "com.example.bot2.app-main-33:/layout/activity_main.xml"
+    }
+]
