@@ -1,0 +1,26 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Bot2" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <item name="android:windowLightStatusBar">true</item> <!-- Set to true for light icons -->
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="Theme.Bot2" parent="Base.Theme.Bot2" />
+
+
+    <style name="NavigationTheme" parent="Theme.Bot2">
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:layout_marginTop">@dimen/_12sdp</item>
+        <item name="android:layout_marginBottom">@dimen/_6sdp</item>
+        <item name="android:layout_marginStart">@dimen/_6sdp</item>
+        <item name="android:layout_marginEnd">@dimen/_6sdp</item>
+        <item name="android:clickable">false</item>
+
+
+
+    </style>
+
+
+</resources>
