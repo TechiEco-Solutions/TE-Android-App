@@ -1,10 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc2d16b6-64d2-422c-ad05-a3370946ee39" name="Changes" comment="project commit" />
+    <list default="true" id="cc2d16b6-64d2-422c-ad05-a3370946ee39" name="Changes" comment="project commit">
+      <change afterPath="$PROJECT_DIR$/app/app/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/build.gradle.kts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/proguard-rules.pro" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/androidTest/java/com/example/bot2/ExampleInstrumentedTest.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/java/com/example/bot2/DrawerItem.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/java/com/example/bot2/MainActivity.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/java/com/example/bot2/adapters/DrawerAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/animator/btn_animator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/btn_anim.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/close_icon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/drawable_icon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/event_schedule.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/power_btn_selector.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/power_icon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/primary_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/profile_icon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/secondary_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/setting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawable/top_half_bacgkround.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/drawer_icon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/event_schedule.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/ic_add_device.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/ic_empty_tubby.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/ic_launcher_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/ic_launcher_foreground.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/ic_prefrences.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/ic_tubby_do.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/power_icon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/primary_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/profile_icon.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/profile_selected.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/secondary_button.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/setting.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/drawable/top_half_bacgkround.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/font/inter.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/font/inter_black.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/font/inter_bold.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/font/inter_semibold.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/layout/drawer_header.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/layout/drawer_item.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-anydpi/ic_launcher.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-anydpi/ic_launcher_round.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/raw/charging_anim.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/values/font_certs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/values/preloaded_fonts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/values/strings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/xml/backup_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/main/res/xml/data_extraction_rules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/app/src/test/java/com/example/bot2/ExampleUnitTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,14 +113,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "cidr.known.project.marker": "true",
+    "last_opened_file_path": "F:/TE-Android-App/app"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\TE-Android-App\app" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="Bot2.app.main" />
@@ -114,7 +196,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="303543a1-aba6-4b78-a89e-1b948fe2d937" name="Changes" comment="project commit" />
+      <changelist id="cc2d16b6-64d2-422c-ad05-a3370946ee39" name="Changes" comment="project commit" />
       <created>1697291946981</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
