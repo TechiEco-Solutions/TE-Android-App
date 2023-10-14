@@ -270,7 +270,7 @@
         app:headerLayout="@layout/drawer_header"
        >
 
-
+    <!--drawer list items-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/drawer_rv"
         android:layout_width="match_parent"
