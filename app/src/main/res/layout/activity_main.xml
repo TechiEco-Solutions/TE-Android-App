@@ -270,12 +270,11 @@
         app:headerLayout="@layout/drawer_header"
        >
 
-    <!--drawer list items-->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/drawer_rv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/_160sdp"
+        android:layout_marginTop="@dimen/_180sdp"
         />
 
 
