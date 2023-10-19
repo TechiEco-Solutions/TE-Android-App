@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="HardcodedText"
+    tools:showIn="navigation_view">
+
+   <!--<item
+        android:id="@+id/myProfile"
+        android:icon="@drawable/tubby_do"
+        android:title="My profile"></item>
+    <item
+        android:id="@+id/people"
+        android:icon="@drawable/profile"
+        android:title="People" />
+    <item
+        android:id="@+id/settings"
+        android:icon="@drawable/profile"
+        android:title="Settings" />-->
+</menu>

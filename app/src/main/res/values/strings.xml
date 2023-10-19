@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Tubby</string>
+
+
+    <string name="bin_status">Bin Status:</string>
+    <string name="percentage">%</string>
+    <string name="charging">Charging:</string>
+
+    <string name="nav_open">Open</string>
+    <string name="nav_close">Close</string>
+
+</resources>
