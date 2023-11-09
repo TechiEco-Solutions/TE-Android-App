@@ -1,5 +1,6 @@
 package com.yash.teapp.activities
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,10 +18,21 @@ class SplashActivity : AppCompatActivity() {
             false
         )
 
+        val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
+        val isUserAlreadyLogIn = sharedPreferences.getBoolean("isUserLogin", false)
+
         Handler().postDelayed(Runnable {
-            val intent = Intent(this@SplashActivity , MainActivity::class.java)
-            startActivity(intent)
-            finish()
-        },1000L)
+            if(!isUserAlreadyLogIn){
+                val intent = Intent(this, SignInActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            else {
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+
+        },2000L)
     }
 }

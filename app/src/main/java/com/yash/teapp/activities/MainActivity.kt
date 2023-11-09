@@ -1,5 +1,6 @@
 package com.yash.teapp.activities
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.Animation
@@ -19,6 +20,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this , R.layout.activity_main)
+
+        var email = intent.getStringExtra("user_email")
+
+        if (email != null) {
+            if(email.isNotEmpty()) {
+                Toast.makeText(this, email, Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isUserLogin", true)
+        editor.apply()
+
 
         binding.apply {
 

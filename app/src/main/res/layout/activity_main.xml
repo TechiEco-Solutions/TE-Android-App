@@ -66,7 +66,7 @@
                 </androidx.appcompat.widget.Toolbar>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/constraintLayout"
+                    android:id="@+id/googleSignInLayout"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/green_bg"
@@ -152,7 +152,7 @@
                     android:animation="@anim/button_press"
                     android:src="@drawable/solar_settings"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/googleSignInLayout" />
 
 
                 <androidx.appcompat.widget.AppCompatImageButton
@@ -165,7 +165,7 @@
                     android:padding="10dp"
                     android:src="@drawable/carbon_event_schedule"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+                    app:layout_constraintTop_toBottomOf="@+id/googleSignInLayout" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"
@@ -176,7 +176,7 @@
                     app:layout_constraintEnd_toStartOf="@+id/btnSchedule"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/btnSettings"
-                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+                    app:layout_constraintTop_toBottomOf="@+id/googleSignInLayout">
 
                     <androidx.appcompat.widget.AppCompatImageButton
                         android:id="@+id/btnPower"
