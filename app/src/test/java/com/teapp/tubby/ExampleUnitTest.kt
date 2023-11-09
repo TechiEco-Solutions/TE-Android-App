@@ -1,4 +1,4 @@
-package com.example.tubby
+package com.teapp.tubby
 
 import org.junit.Test
 

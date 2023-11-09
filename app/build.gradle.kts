@@ -1,14 +1,17 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
+    //Firebase
+    id("com.google.gms.google-services")
 }
 
 android {
-    namespace = "com.example.tubby"
+    namespace = "com.teapp.tubby"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.tubby"
+        applicationId = "com.teapp.tubby"
         minSdk = 21
         targetSdk = 33
         versionCode = 1
@@ -58,5 +61,12 @@ dependencies {
 
     //Lottie Animation
     implementation ("com.airbnb.android:lottie:3.5.0")
+
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.5.0"))
+    implementation("com.google.firebase:firebase-analytics")
+
+    //Firebase Realtime Database
+    implementation("com.google.firebase:firebase-database")
 
 }

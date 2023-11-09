@@ -1,21 +1,29 @@
-package com.example.tubby.activity
+package com.teapp.tubby.activity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tubby.R
-import com.example.tubby.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.teapp.tubby.R
+import com.teapp.tubby.databinding.ActivityMainBinding
+import com.teapp.tubby.utils.ReadDataModel
 
 @Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var toggle: ActionBarDrawerToggle
+
+    val dataList = arrayListOf<ReadDataModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +39,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         navigationDrawer()
 
+        readData()
+
+
+
+
     }
+
 
     private fun navigationDrawer() {
 
@@ -80,5 +94,38 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 binding.mainDrawerLayout.openDrawer(binding.mainNavigationView)
             }
         }
+    }
+
+    private fun readData() {
+
+        val firebaseDatabase = FirebaseDatabase.getInstance()
+        val databaseReference = firebaseDatabase.reference
+
+        databaseReference.child("Bin Status").addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+
+
+                val binBattery = snapshot.child("Battery").value as Number
+                val binStorage = snapshot.child("Filled Storage").value as Number
+
+                val readDataModel = ReadDataModel(binBattery, binStorage)
+                dataList.add(readDataModel)
+
+                setData()
+                Log.e("TAG", "onDataChange:***** $dataList")
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e("TAG", "onCancelled: $error")
+            }
+        })
+    }
+
+    private fun setData() {
+
+        binding.mainBinStatusPercentageTextView.text = dataList[0].filledStorage.toString()
+        binding.mainChargingPercentageTextView.text = dataList[0].battery.toString()
+
     }
 }

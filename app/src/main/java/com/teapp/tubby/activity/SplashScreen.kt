@@ -1,4 +1,4 @@
-package com.example.tubby.activity
+package com.teapp.tubby.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
-import com.example.tubby.R
-import com.example.tubby.databinding.ActivitySplashScreenBinding
+import com.teapp.tubby.R
+import com.teapp.tubby.databinding.ActivitySplashScreenBinding
 
 @Suppress("DEPRECATION")
 @SuppressLint("CustomSplashScreen")

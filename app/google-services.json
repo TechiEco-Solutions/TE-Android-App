@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1097480455048",
+    "project_id": "te-app-5be3f",
+    "storage_bucket": "te-app-5be3f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1097480455048:android:d6d9c7769564331fbfb03d",
+        "android_client_info": {
+          "package_name": "com.teapp.tubby"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM4pyC8Qbtw9LXpBeJH7JK8n6XpfxPJBA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
