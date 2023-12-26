@@ -13,25 +13,31 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bot2.adapters.DrawerAdapter
 import com.example.bot2.databinding.ActivityMainBinding
 import android.Manifest
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.net.Uri
+import android.net.wifi.WifiManager
+import android.os.Build
 import android.provider.Settings
 import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
 import com.example.bot2.services.LocationService
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationServices
+import java.math.BigInteger
+import java.net.Inet4Address
+import java.net.InetAddress
+import java.nio.ByteOrder
 
-class MainActivity : AppCompatActivity() {
+class HomeActivty : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var locationService: LocationService
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -43,7 +49,9 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.powerBtnCard.setOnClickListener {
-            requestLocationAndUpdateUI()
+//            requestLocationAndUpdateUI()
+            val ipAddress = getIPAddress(this)
+            Toast.makeText(this, "IP Address: $ipAddress", Toast.LENGTH_LONG).show()
         }
     }
 
@@ -60,7 +68,7 @@ class MainActivity : AppCompatActivity() {
 
         val drawerAdapter = DrawerAdapter(drawerItems)
         binding.drawerRv.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = LinearLayoutManager(this@HomeActivty)
             adapter = drawerAdapter
         }
 
@@ -164,6 +172,42 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    fun getIPAddress(context: Context): String? {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val wifiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
+
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+            // For Android 10 and above
+            val network = connectivityManager.activeNetwork ?: return null
+            val networkCapabilities = connectivityManager.getNetworkCapabilities(network) ?: return null
+            if (networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
+                val linkProperties = connectivityManager.getLinkProperties(network)
+                linkProperties?.linkAddresses?.find {
+                    it.address is Inet4Address && !it.address.isLoopbackAddress
+                }?.address?.hostAddress
+            } else {
+                null
+            }
+        } else {
+            // For older versions
+            val wifiInfo = wifiManager.connectionInfo
+            val ipAddress = wifiInfo.ipAddress
+            if (ByteOrder.nativeOrder() == ByteOrder.LITTLE_ENDIAN) {
+                BigInteger.valueOf(ipAddress.toLong()).and(BigInteger("0xFFFFFFFF")).toInt()
+            } else {
+                ipAddress
+            }.let {
+                val ipByteArray = BigInteger.valueOf(it.toLong()).toByteArray()
+                try {
+                    InetAddress.getByAddress(ipByteArray).hostAddress
+                } catch (ex: Exception) {
+                    null
+                }
+            }
+        }
+    }
+
 
 }
 

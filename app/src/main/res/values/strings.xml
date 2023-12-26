@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Bot</string>
+    <string name="hi_there">Hi There,</string>
+    <string name="user">User!</string>
+    <string name="email">Email</string>
+    <string name="Confirm_password">Confirm Password</string>
+    <string name="password">Password\n</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="or">Or</string>
+    <string name="Cotinue_with_google">Continue With Google</string>
+    <string name="you_are_back">You\'re Back,</string>
+    <string name="sign_in">Sign In</string>
+    <string name="switch_accounts">Switch Accounts</string>
 </resources>
