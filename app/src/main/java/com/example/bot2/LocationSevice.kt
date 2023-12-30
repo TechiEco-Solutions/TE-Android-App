@@ -11,6 +11,8 @@ import androidx.core.content.ContextCompat
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 
+
+// this class is used to get the location of the user
 class LocationService(private val activity: Activity) {
     private val fusedLocationClient: FusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(activity)
 

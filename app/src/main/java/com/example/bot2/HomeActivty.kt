@@ -35,6 +35,7 @@ import java.nio.ByteOrder
 class HomeActivty : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    // this object
     private lateinit var locationService: LocationService
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,19 +43,20 @@ class HomeActivty : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //
         locationService = LocationService(this)
 
         drawerSetup()
         windowSetup()
 
-
+        // when power button is clicked request location and update UI and get IP address (use the fun you need as you will be asked)
         binding.powerBtnCard.setOnClickListener {
-//            requestLocationAndUpdateUI()
+            requestLocationAndUpdateUI()
             val ipAddress = getIPAddress(this)
-            Toast.makeText(this, "IP Address: $ipAddress", Toast.LENGTH_LONG).show()
         }
     }
 
+    // this function is called to setup the drawer
     fun drawerSetup() {
 
 
@@ -101,12 +103,15 @@ class HomeActivty : AppCompatActivity() {
 
     }
 
+    // this function is called to setup the window status bar and navigation bar
     fun windowSetup() {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
     }
+
+    // this function is called when the power button is clicked to request location and update UI
     private fun requestLocationAndUpdateUI() {
         if (ContextCompat.checkSelfPermission(
                 this,
@@ -124,7 +129,7 @@ class HomeActivty : AppCompatActivity() {
             )
         }
     }
-
+    // this function is called when the location is updated it must update the UI
     private fun updateLocationUI(location: Location?) {
         location?.let {
             Log.d("LocationLog", "Lat: ${it.latitude}\nLng: ${it.longitude}")
@@ -132,6 +137,7 @@ class HomeActivty : AppCompatActivity() {
         } ?: Log.d("LocationLog", "Location is null")
     }
 
+    // this function is called when the user responds to the permission request dialog
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == LocationService.REQUEST_LOCATION_PERMISSION) {
@@ -143,6 +149,7 @@ class HomeActivty : AppCompatActivity() {
         }
     }
 
+    // this function is called when the user did not grant the location permission
     private fun showRationaleDialog() {
         AlertDialog.Builder(this)
             .setMessage("This app needs location permission to function. Please enable it in settings.")
@@ -156,6 +163,8 @@ class HomeActivty : AppCompatActivity() {
             .create()
             .show()
     }
+
+    // this function is called when the user responds to the location settings dialog
         override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == LocationService.REQUEST_CHECK_SETTINGS) {
@@ -173,6 +182,7 @@ class HomeActivty : AppCompatActivity() {
         }
     }
 
+    // this function is called to get the IP address of the device
     fun getIPAddress(context: Context): String? {
         val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val wifiManager = context.applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager

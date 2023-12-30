@@ -16,6 +16,7 @@ class SignUpActivity : AppCompatActivity() {
     private var isConfirmPasswordVisible = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // this line is used to disable dark mode
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
@@ -29,6 +30,8 @@ class SignUpActivity : AppCompatActivity() {
         }
 
     }
+
+    // this function is called to setup the password edit text
     fun passwordEditTextSetup(){
         binding.showPasswordIv.setOnClickListener {
             if (isPasswordVisible) {
@@ -46,6 +49,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+    // this function is called to setup the confirm password edit text
     fun confirmPasswordEditTextSetup(){
         binding.showConfirmPasswordIv.setOnClickListener {
             if (isConfirmPasswordVisible) {
@@ -63,6 +67,8 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
+
+    // this function is called to setup the window status bar and navigation bar
     fun windowSetup() {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,

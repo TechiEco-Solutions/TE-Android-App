@@ -23,6 +23,7 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
+    // this function is called to setup the password edit text
     fun passwordEditTextSetup(){
         binding.showPasswordIv.setOnClickListener {
             if (isPasswordVisible) {
@@ -41,6 +42,7 @@ class SignInActivity : AppCompatActivity() {
         }
     }
 
+    // this function is called to setup the window status bar and navigation bar
     fun windowSetup() {
         window.setFlags(
             WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
