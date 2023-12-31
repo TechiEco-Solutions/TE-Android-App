@@ -1,5 +1,6 @@
 package com.yash.teapp.activities
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,7 @@ import java.util.regex.Pattern
 
 class SignInActivity : AppCompatActivity() {
 
+    // databinding(A Jetpack Architecture Component) is used.
     private lateinit var binding:ActivitySignInBinding
 
     private lateinit var auth: FirebaseAuth
@@ -31,10 +33,12 @@ class SignInActivity : AppCompatActivity() {
 
         binding.apply {
             googleSignInLayout.setOnClickListener {
+                //calling the below function to start Google sign in process
                 startGoogleSignIn()
             }
 
-            buttonSignUp.setOnClickListener {
+            //Performing Manual Sign in By Entering Email And Password
+            buttonSignIn.setOnClickListener {
                 val email:String = etPhone.text.toString()
                 val password:String = etPassword.text.toString()
                 if(email.isNotEmpty() && password.isNotEmpty()) {
@@ -46,7 +50,7 @@ class SignInActivity : AppCompatActivity() {
                         textFieldPhone.error = null
                         if(isValidPassword(password)) {
                             textFieldPassword.error = null
-                                signUpWithEmailAndPassword(email, password)
+                                signInWithEmailAndPassword(email, password)
                         }else{
                             textFieldPassword.error = "the length of password should be at least 8 and must contains atleast 1 numeric ,1 upper case letter ,1 lower case letter and 1 special symbol."
                         }
@@ -66,24 +70,37 @@ class SignInActivity : AppCompatActivity() {
 
     }
 
+    //checking if the email fulfils the required criteria
+    // i.e. , is email has only alpha-numeric characters and ends with "@gmail.com"
     private fun isValidEmail(email: String): Boolean {
         val emailPattern = "^[A-Za-z0-9.]+@gmail.com$"
         return Pattern.matches(emailPattern, email)
     }
 
+    //checking if the password fulfils the required criteria
+    // i.e. , is password has At least 8 characters, no spaces, 1 numeric, 1 uppercase, 1 lowercase, 1 special symbol
     private fun isValidPassword(password: String): Boolean {
         // Password pattern: At least 8 characters, no spaces, 1 numeric, 1 uppercase, 1 lowercase, 1 special symbol
         val passwordPattern = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$"
         return Pattern.matches(passwordPattern, password)
     }
 
-    private fun signUpWithEmailAndPassword(email: String, password: String) {
+    //function to start and perform manual sign-in with (Email,Password) process
+    private fun signInWithEmailAndPassword(email: String, password: String) {
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign-up success
                     val user = auth.currentUser
                     val userEmail = user?.email
+
+                    //creating a sharedPreferences to save that now the user has sign in
+                    //so when the user will open the app next time , then user will directly navigated to the main screen
+                    // instead of login screen
+                    val sharedPreferences = getSharedPreferences("MySharedPreferences", Context.MODE_PRIVATE)
+                    val editor = sharedPreferences.edit()
+                    editor.putBoolean("isUserLogin", true)
+                    editor.apply()
 
                     // Pass the email to the next activity
                     val intent = Intent(this, MainActivity::class.java)
@@ -105,6 +122,7 @@ class SignInActivity : AppCompatActivity() {
             }
     }
 
+    //function to start and perform google sign-in process
     private fun startGoogleSignIn() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
