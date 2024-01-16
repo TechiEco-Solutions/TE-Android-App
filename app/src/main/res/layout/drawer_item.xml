@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawer_list_item"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:clickable="true"
+    android:layout_marginTop="26.00dp"
+    android:layout_marginStart="13.00dp"
+    android:layout_marginEnd="13.00dp"
+    app:cardCornerRadius="9.10dp"
+    app:cardElevation="6.50dp"
+    android:stateListAnimator="@animator/btn_anim"
+    app:cardBackgroundColor="@color/drawerItemsColor"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="9.10dp"
+        android:layout_marginBottom="5.20dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5.20dp"
+            >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/drawer_item_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:padding="2.60dp"
+                android:src="@drawable/ic_tubby_do"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                />
+
+            <TextView
+                android:id="@+id/drawer_item_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textSize="19.50dp"
+                android:text="Tubby do"
+                android:fontFamily="@font/inter_bold"
+                android:textColor="@color/drawerItemsColor"
+                app:layout_constraintStart_toEndOf="@+id/drawer_item_icon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.cardview.widget.CardView>
+
+
