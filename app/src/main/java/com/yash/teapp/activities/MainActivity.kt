@@ -7,22 +7,25 @@ import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.yash.teapp.R
-import com.yash.teapp.adapters.CustomNavigationAdapter
-import com.yash.teapp.dataClasses.CustomMenuItem
-import com.yash.teapp.databinding.ActivityMainBinding
+import com.yash.teapp.adapters.DrawerAdapter
+import com.yash.teapp.dataClasses.DrawerItem
+import com.yash.teapp.databinding.ActivityMainsBinding
 import java.net.NetworkInterface
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityMainsBinding
     private var isWifiPermissionGranted:Boolean ?= false
 
     companion object {
@@ -31,8 +34,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this , R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this , R.layout.activity_mains)
 
+
+        drawerSetup()
         // Check and request permissions at runtime
         if (hasPermission()) {
             // Permissions are granted, proceed with getting IP and MAC addresses
@@ -52,69 +57,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
 
-            setSupportActionBar(toolbar)
-            supportActionBar?.title = ""
 
-            customNavigationIcon.setOnClickListener {
-
-                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                    drawerLayout.closeDrawer(GravityCompat.START)
-                } else {
-                    drawerLayout.openDrawer(GravityCompat.START)
-                }
-            }
-
-            //toggle.syncState()
-
-            // Create custom menu items
-            val customMenuItems = listOf(
-                CustomMenuItem(R.drawable.tubby_do, "Tubby Do"),
-                CustomMenuItem(R.drawable.empty_tubby, "Empty Tubby"),
-                CustomMenuItem(R.drawable.add_device_img, "Add Device"),
-                CustomMenuItem(R.drawable.preferences_img, "Preferences")
-            )
-            // Add more custom menu items as needed
-
-            // Create and set the custom adapter for the ListView
-            val adapter = CustomNavigationAdapter(applicationContext, customMenuItems)
-            customNavList.adapter = adapter
-
-            // Set item click listener
-            customNavList.setOnItemClickListener { _, _, position, _ ->
-
-                val selectedItem = customMenuItems[position]
-                // Handle item click based on the selected item
-                when (selectedItem.text) {
-                    "Tubby Do" -> {
-                        // Handle Custom Item 1 click
-                        Toast.makeText(applicationContext, "DO Clicked!", Toast.LENGTH_SHORT).show()
-                    }
-                    "Empty Tubby" -> {
-                        // Handle Custom Item 2 click
-                        Toast.makeText(applicationContext, "Delete Clicked!", Toast.LENGTH_SHORT)
-                            .show()
-                    }
-                    "Add Device" -> {
-                        // Handle Custom Item 1 click
-                        Toast.makeText(
-                            applicationContext,
-                            "Add Device Clicked!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    "Preferences" -> {
-                        // Handle Custom Item 2 click
-                        Toast.makeText(
-                            applicationContext,
-                            "Preferences Clicked!",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                    // Add more cases for other custom items
-                }
-                drawerLayout.closeDrawer(GravityCompat.START)
-
-            }
 
             //
             val buttonPressAnimation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_press)
@@ -198,6 +141,53 @@ class MainActivity : AppCompatActivity() {
 
             }
         }
+    }
+    //drawer function
+
+    fun drawerSetup() {
+
+
+        val drawerItems = listOf(
+            DrawerItem("Tubby Do", R.drawable.ic_tubby_do),
+            DrawerItem("Empty Tubby", R.drawable.ic_empty_tubby),
+            DrawerItem("Add Device", R.drawable.ic_add_device),
+            DrawerItem("Preferences", R.drawable.ic_prefrences),
+        )
+
+
+        val drawerAdapter = DrawerAdapter(drawerItems)
+        binding.drawerRv.apply {
+            layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = drawerAdapter
+        }
+
+        //when an drawer item is clicked
+        drawerAdapter.onClick = { itemPosition ->
+            Toast.makeText(
+                this@MainActivity,
+                "Clicked on ${drawerItems[itemPosition].title}",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
+
+
+        binding.drawerIconBtn.setOnClickListener {
+            if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+                binding.drawerLayout.closeDrawer(GravityCompat.START)
+            } else {
+                binding.drawerLayout.openDrawer(GravityCompat.START)
+            }
+        }
+
+        val headerView: View = binding.navigationView.getHeaderView(0)
+        val closeButton: ImageButton = headerView.findViewById(R.id.ic_drawer_close)
+
+
+        closeButton.setOnClickListener {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
+        }
+
+
     }
 
     private fun getIPAddress(): String {
