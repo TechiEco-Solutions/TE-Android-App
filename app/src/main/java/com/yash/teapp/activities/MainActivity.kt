@@ -20,12 +20,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yash.teapp.R
 import com.yash.teapp.adapters.DrawerAdapter
 import com.yash.teapp.dataClasses.DrawerItem
-import com.yash.teapp.databinding.ActivityMainsBinding
+import com.yash.teapp.databinding.ActivityMainBinding
 import java.net.NetworkInterface
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainsBinding
+    private lateinit var binding: ActivityMainBinding
     private var isWifiPermissionGranted:Boolean ?= false
 
     companion object {
@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this , R.layout.activity_mains)
+        binding = DataBindingUtil.setContentView(this , R.layout.activity_main)
 
 
         drawerSetup()
