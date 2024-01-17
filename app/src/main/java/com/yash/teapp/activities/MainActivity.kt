@@ -142,7 +142,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-    //drawer function
+    //drawer function for drawer
 
     fun drawerSetup() {
 
