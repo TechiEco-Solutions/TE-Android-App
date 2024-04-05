@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".activities.MainActivity"
+    android:fitsSystemWindows="true"
+    >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="layout"
+        android:fitsSystemWindows="true"
+        tools:context=".HomeActivty">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/header_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.10" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/footer_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.92" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_half_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.70" />
+
+        <!--charging animation Guidelines-->
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.19" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/bottom_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.65" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/start_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/end_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.95" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_bar_guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/top_half_background"
+            app:layout_constraintBottom_toTopOf="@id/top_half_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/profile_icon_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_8sdp"
+            android:background="@drawable/profile_selected"
+            android:contentDescription="profile"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/profile_icon"
+            android:stateListAnimator="@animator/btn_anim"
+            app:layout_constraintBottom_toTopOf="@+id/header_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_bar_guideline" />
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/drawer_icon_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:background="@null"
+            android:padding="@dimen/_8sdp"
+            android:src="@drawable/drawer_icon"
+            app:layout_constraintBottom_toTopOf="@+id/header_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_bar_guideline" />
+
+        />
+
+
+        <TextView
+            android:id="@+id/Tubby_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_black"
+            android:text="Tubby"
+            android:textColor="@color/white"
+            android:textSize="41.60sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/header_guideline" />
+
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/bottom_guideline"
+            app:layout_constraintEnd_toEndOf="@id/end_guideline"
+            app:layout_constraintStart_toStartOf="@id/start_guideline"
+            app:layout_constraintTop_toTopOf="@id/top_guideline">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/charging_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/charging_anim" />
+
+            <TextView
+                android:id="@+id/bin_status_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="6.50dp"
+                android:fontFamily="@font/inter"
+                android:text="Bin Status 70%"
+                android:textColor="@color/white"
+                android:textSize="15.60sp" />
+
+            <TextView
+                android:id="@+id/charging_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|bottom"
+                android:fontFamily="@font/inter_semibold"
+                android:text="Charging: 100% Done"
+                android:textColor="@color/white"
+                android:textSize="13.00sp" />
+            />
+
+
+        </FrameLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/power_btn_card"
+            android:layout_width="101dp"
+            android:layout_height="102dp"
+            android:clickable="true"
+            android:outlineAmbientShadowColor="@color/topHalBackground"
+            android:outlineSpotShadowColor="@color/topHalBackground"
+            android:stateListAnimator="@animator/btn_anim"
+            app:cardCornerRadius="650.00dp"
+            app:cardElevation="13.00dp"
+            app:layout_constraintBottom_toBottomOf="@id/footer_guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.64">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnPower"
+                android:layout_width="84dp"
+                android:layout_height="85dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/primary_button"
+                android:clickable="false"
+                android:contentDescription="power"
+                android:src="@drawable/power_icon"
+                android:stateListAnimator="@animator/btn_anim"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/schedule_btn_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:stateListAnimator="@animator/btn_anim"
+            app:cardCornerRadius="2000dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintStart_toEndOf="@id/power_btn_card"
+            app:layout_constraintTop_toBottomOf="@id/top_half_guideline"
+            app:layout_constraintVertical_bias="0.20">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnSchedule"
+                android:layout_width="58.50dp"
+                android:layout_height="58.50dp"
+                android:background="@drawable/secondary_button"
+                android:clickable="false"
+                android:contentDescription="btnschedule"
+                android:src="@drawable/event_schedule" />
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/setting_btn_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:stateListAnimator="@animator/btn_anim"
+            app:cardCornerRadius="20000dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/power_btn_card"
+            app:layout_constraintHorizontal_bias="0.60"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_half_guideline"
+            app:layout_constraintVertical_bias="0.20">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="58.50dp"
+                android:layout_height="58.50dp"
+                android:background="@drawable/secondary_button"
+                android:clickable="false"
+                android:contentDescription="btnsettings"
+
+                android:src="@drawable/setting" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/drawer_header"
+       >
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/drawer_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="221.00dp"
+        />
+
+
+
+    </com.google.android.material.navigation.NavigationView>
+
+
+</androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>
