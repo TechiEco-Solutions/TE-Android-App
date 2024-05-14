@@ -3,7 +3,7 @@ package com.anshita.teapp.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.yash.teapp.dataClasses.DrawerItem
+import com.anshita.teapp.dataClasses.DrawerItem
 import com.yash.teapp.databinding.DrawerItemBinding
 
 class DrawerAdapter(private val items: List<DrawerItem>) :
