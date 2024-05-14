@@ -17,21 +17,21 @@
         android:theme="@style/Theme.TEApp"
         tools:targetApi="31">
         <activity
-            android:name=".SignUpActivity"
+            android:name="com.anshita.teapp.activities.SignUpActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.SignInActivity"
+            android:name="com.anshita.teapp.activities.SignInActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="com.anshita.teapp.activities.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +44,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.anshita.teapp.activities.MainActivity"
             android:exported="false"
             android:theme="@style/Theme.MineTheme">
             <meta-data

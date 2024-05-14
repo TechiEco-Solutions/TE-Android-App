@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -21,7 +22,6 @@ class SignInActivity : AppCompatActivity() {
 
     // databinding(A Jetpack Architecture Component) is used.
     private lateinit var binding:ActivitySignInBinding
-
     private lateinit var auth: FirebaseAuth
     private val RC_SIGN_IN = 123
 
@@ -37,38 +37,52 @@ class SignInActivity : AppCompatActivity() {
                 startGoogleSignIn()
             }
 
-            //Performing Manual Sign in By Entering Email And Password
             buttonSignIn.setOnClickListener {
-                val email:String = etPhone.text.toString()
-                val password:String = etPassword.text.toString()
-                if(email.isNotEmpty() && password.isNotEmpty()) {
+                val email = binding.etPhone.text.toString()
+                val password = binding.etPassword.text.toString()
 
-                    textFieldPhone.error = null
-                    textFieldPassword.error = null
-
-                        if (isValidEmail(email)) {
-                        textFieldPhone.error = null
-                        if(isValidPassword(password)) {
-                            textFieldPassword.error = null
-                                signInWithEmailAndPassword(email, password)
-                        }else{
-                            textFieldPassword.error = "the length of password should be at least 8 and must contains atleast 1 numeric ,1 upper case letter ,1 lower case letter and 1 special symbol."
-                        }
-                    } else {
-                        textFieldPhone.error = "Invalid Email!"
-                    }
-                }else{
-                    if(password.isEmpty()) {
-                        textFieldPassword.error = "Password can't be empty."
-                    }else{
-                        textFieldPhone.error = "Email can't be empty."
-                    }
+                if (validateInput(email, password)) {
+                    signIn(email, password)
                 }
             }
 
         }
 
     }
+
+    private fun validateInput(email: String, password: String): Boolean {
+        if (email.isEmpty()) {
+            showToast("Email cannot be empty")
+            return false
+        }
+
+        if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            showToast("Enter valid email address")
+            return false
+        }
+
+        if (password.isEmpty()) {
+            showToast("Password cannot be empty")
+            return false
+        }
+
+        return true
+    }
+
+    private fun signIn(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    showToast("Sign in successful")
+                    navigateToMainActivity()
+                    finish()
+                } else {
+                    showToast("Sign in failed: ${task.exception?.message}")
+                }
+            }
+    }
+
+
 
     //checking if the email fulfils the required criteria
     // i.e. , is email has only alpha-numeric characters and ends with "@gmail.com"
@@ -151,6 +165,7 @@ class SignInActivity : AppCompatActivity() {
 
     }
 
+    // Method for Creating account with google
     private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount?) {
         val credential = GoogleAuthProvider.getCredential(acct?.idToken, null)
         auth.signInWithCredential(credential)
@@ -173,5 +188,14 @@ class SignInActivity : AppCompatActivity() {
             }
     }
 
+    private fun navigateToMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish() // Close the current activity
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
 
 }

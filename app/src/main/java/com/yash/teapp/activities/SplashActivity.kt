@@ -27,7 +27,7 @@ class SplashActivity : AppCompatActivity() {
 
             //If not signed in then navigating the user ti sign in screen
             if(!isUserAlreadyLogIn){
-                val intent = Intent(this, SignInActivity::class.java)
+                val intent = Intent(this, SignUpActivity::class.java)
                 startActivity(intent)
                 finish()
             }

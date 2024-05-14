@@ -5,21 +5,21 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.anshita.teapp.adapters.DrawerAdapter
+import com.anshita.teapp.dataClasses.DrawerItem
 import com.yash.teapp.R
-import com.yash.teapp.adapters.DrawerAdapter
-import com.yash.teapp.dataClasses.DrawerItem
 import com.yash.teapp.databinding.ActivityMainBinding
 import java.net.NetworkInterface
 
