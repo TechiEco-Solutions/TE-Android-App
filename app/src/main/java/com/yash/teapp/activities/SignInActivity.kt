@@ -37,6 +37,11 @@ class SignInActivity : AppCompatActivity() {
                 startGoogleSignIn()
             }
 
+            singupBtnTV.setOnClickListener {
+                val intent = Intent(this@SignInActivity, SignUpActivity::class.java)
+                startActivity(intent)
+            }
+
             buttonSignIn.setOnClickListener {
                 val email = binding.etPhone.text.toString()
                 val password = binding.etPassword.text.toString()

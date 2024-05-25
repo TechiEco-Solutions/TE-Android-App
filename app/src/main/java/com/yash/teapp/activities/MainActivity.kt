@@ -2,6 +2,7 @@ package com.anshita.teapp.activities
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.wifi.WifiInfo
 import android.net.wifi.WifiManager
@@ -12,6 +13,7 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
@@ -20,13 +22,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.anshita.teapp.adapters.DrawerAdapter
 import com.anshita.teapp.dataClasses.DrawerItem
 import com.yash.teapp.R
+import com.yash.teapp.activities.EditProfileActivity
+import com.yash.teapp.activities.ProfileActivity
 import com.yash.teapp.databinding.ActivityMainBinding
 import java.net.NetworkInterface
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var isWifiPermissionGranted:Boolean ?= false
+    private var isWifiPermissionGranted: Boolean? = false
 
     companion object {
         const val PERMISSION_REQUEST_CODE = 100
@@ -34,7 +38,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this , R.layout.activity_main)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+
 
 
         drawerSetup()
@@ -50,17 +56,22 @@ class MainActivity : AppCompatActivity() {
         var email = intent.getStringExtra("user_email")
 
         if (email != null) {
-            if(email.isNotEmpty()) {
+            if (email.isNotEmpty()) {
                 Toast.makeText(this, email, Toast.LENGTH_SHORT).show()
             }
         }
 
         binding.apply {
 
+            val profile_icon_btn : AppCompatImageButton = findViewById(R.id.profile_icon_btn)
 
-
+            profile_icon_btn.setOnClickListener {
+                val intent = Intent(this@MainActivity, ProfileActivity::class.java)
+                startActivity(intent)
+            }
             //
-            val buttonPressAnimation: Animation = AnimationUtils.loadAnimation(applicationContext, R.anim.button_press)
+            val buttonPressAnimation: Animation =
+                AnimationUtils.loadAnimation(applicationContext, R.anim.button_press)
 
             btnPower.setOnClickListener {
                 // Create the animation
@@ -85,12 +96,18 @@ class MainActivity : AppCompatActivity() {
                 btnPower.startAnimation(buttonPressAnimation)
 
                 // Perform actions when the button is clicked
-                if(isWifiPermissionGranted == true){
+                if (isWifiPermissionGranted == true) {
                     val ipAddress = getIPAddress()
                     val macAddress = getMacAddress()!!
 
-                    Toast.makeText(applicationContext , "IP Address: $ipAddress \n MAC Address: $macAddress",Toast.LENGTH_LONG).show()
+                    Toast.makeText(
+                        applicationContext,
+                        "IP Address: $ipAddress \n MAC Address: $macAddress",
+                        Toast.LENGTH_LONG
+                    ).show()
                 }
+
+
 
             }
 
@@ -117,7 +134,11 @@ class MainActivity : AppCompatActivity() {
                 btnSettings.startAnimation(buttonPressAnimation)
 
                 // Perform actions when the button is clicked
+
+
             }
+
+
 
             btnSchedule.setOnClickListener {
 
@@ -195,7 +216,13 @@ class MainActivity : AppCompatActivity() {
         val wifiManager = applicationContext.getSystemService(Context.WIFI_SERVICE) as WifiManager
         val wifiInfo: WifiInfo? = wifiManager.connectionInfo
         val ipAddress = wifiInfo?.ipAddress ?: 0
-        return String.format("%d.%d.%d.%d", ipAddress and 0xff, ipAddress shr 8 and 0xff, ipAddress shr 16 and 0xff, ipAddress shr 24 and 0xff)
+        return String.format(
+            "%d.%d.%d.%d",
+            ipAddress and 0xff,
+            ipAddress shr 8 and 0xff,
+            ipAddress shr 16 and 0xff,
+            ipAddress shr 24 and 0xff
+        )
     }
 
     private fun getMACAddress(): String {
@@ -251,7 +278,8 @@ class MainActivity : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
 
         if (requestCode == PERMISSION_REQUEST_CODE) {
-            isWifiPermissionGranted = grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
+            isWifiPermissionGranted =
+                grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
         }
     }
 
