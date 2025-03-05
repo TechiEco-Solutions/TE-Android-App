@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "614735054023",
+    "firebase_url": "https://te-android-e8c7c-default-rtdb.firebaseio.com",
+    "project_id": "te-android-e8c7c",
+    "storage_bucket": "te-android-e8c7c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:614735054023:android:35bd5f7439bd80a5832ae2",
+        "android_client_info": {
+          "package_name": "com.techieco.teandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "614735054023-0a9o4qrtdmlpqj3p9590fdv569365s5a.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.techieco.teandroid",
+            "certificate_hash": "660eb2ac99cce966c8f00114d6296452e71e2746"
+          }
+        },
+        {
+          "client_id": "614735054023-h436ccuehvn1dqejvtv889q4vl9pe122.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsUleNTXBtoyER-yddPYGptPCPjjQFDtQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "614735054023-h436ccuehvn1dqejvtv889q4vl9pe122.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
